@@ -6,7 +6,7 @@ Matrix::Matrix(int rows, int cols)
 {
 	if (rows < 0 || cols < 0)
 	{
-		throw std::out_of_range("out_of_range");
+		throw std::out_of_range("num_rows and num_cols must be >= 0");
 	}
 
 	num_rows = rows;
@@ -18,7 +18,7 @@ void Matrix::Reset(int rows, int cols)
 {
 	if (rows < 0 || cols < 0)
 	{
-		throw std::out_of_range("out_of_range");
+		throw std::out_of_range("num_rows and num_cols must be >= 0");
 	}
 
 	num_rows = rows;
@@ -69,7 +69,7 @@ Matrix Matrix::operator+(const Matrix & rhs)
 {
 	if (this->num_rows != rhs.num_rows || this->num_cols != rhs.num_cols)
 	{
-		throw std::exception("Size of lhs and rhs is diferent");
+		throw std::exception("Size of first and second are different");
 	}
 
 	Matrix result(num_rows, num_cols);
@@ -93,7 +93,7 @@ std::istream & operator>>(std::istream & stream, Matrix & rhs)
 	stream >> num_rows >> num_cols;
 	if (num_rows < 0 || num_cols < 0)
 	{
-		throw std::out_of_range("out_of_range");
+		throw std::out_of_range("num_rows and num_cols must be >= 0");
 	}
 	rhs.Reset(num_rows, num_cols);
 
